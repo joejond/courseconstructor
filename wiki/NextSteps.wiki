@@ -1,0 +1,21 @@
+#summary Like my todo list of next steps
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Add slug for Course, Section and Subsection
+  * Add columns for Course, Section and Subsection
+  * Allows sorting Section by Course
+  * Add support for simple markup
+  * Add features to save text into HTML whenever Section or Subsection is saved
+  * Add view to view course as single book
+  * Add view to view outline of course
+  * Create PDF slide deck with just Course, Section and Subsection
+  * Use markup to create the rest of the slide deck
+
+This should be enough to keep me busy for a while.
