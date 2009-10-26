@@ -2,22 +2,30 @@ from course_manager import models as cmm
 from django.contrib import admin
 
 class SubsectionInline(admin.StackedInline):
-    fields = ['title', 'code', 'show', 'introduction', 'body', 'conclusion']
+    fields = ['title', 'slug', 'code', 'show', 'introduction', 'body', 'conclusion']
+    prepopulated_fields = {"slug": ("title",)}
     model = cmm.Subsection
-    extra = 1
+    extra = 2
 
-class SectionInline(admin.StackedInline):
-    fields = ['title', 'code', 'show']
+class SectionInline(admin.TabularInline):
+    fields = ['title', 'slug', 'code', 'show']
+    prepopulated_fields = {"slug": ("title",)}
     model = cmm.Section
-    extra = 1
+    extra = 4
 
 class SectionAdmin(admin.ModelAdmin):
-    fields = ['course', 'title', 'introduction', 'conclusion', 'code', 'show']
-    extra = 1
+    fields = ['course', 'title', 'slug', 'introduction', 'conclusion', 'code', 'show']
+    list_display = ['course', 'title', 'code', 'show']
+    list_editable = ['show', 'code']
+    list_filter = ['course']
+    search_fields = ['course__title']
+    prepopulated_fields = {"slug": ("title",)}
     inlines = [SubsectionInline]
 
 class CourseAdmin(admin.ModelAdmin):
-    fields = ['title', 'code']
+    fields = ['title', 'slug', 'code', 'description']
+    list_display = ['title', 'code']
+    prepopulated_fields = {"slug": ("title",)}
     inlines = [SectionInline]
 
 

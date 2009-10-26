@@ -2,10 +2,16 @@ from django.db import models as md
 
 class Course(md.Model):
     title = md.CharField(max_length=80)
-    code = md.CharField(max_length=4)
+    slug = md.SlugField()
+    code = md.CharField(max_length=4, unique=True)
+    description = md.TextField(max_length=50000)
+    description_html = md.TextField(max_length=50000, blank=True)
+    def __unicode__(self):
+        return self.title
     
 class BaseSection (md.Model):
     title = md.CharField(max_length=80)
+    slug = md.SlugField()
     introduction = md.TextField(max_length=50000)
     introduction_html = md.TextField(max_length=50000, blank=True)
     conclusion = md.TextField(max_length=50000)
