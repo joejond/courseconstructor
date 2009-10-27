@@ -8,14 +8,20 @@ Add your content here.
 = Details =
 
 Add your content here.  Format your content with:
+  * Add view to view course as single book IN PROGRESS
+  * Add view to view outline of course IN PROGRESS
+  * Create PDF slide deck with just Course, Section and Subsection
+  * Use markup to create the rest of the slide deck
+  * Try markup to create better code listings (i.e., one not depending on spaces)
+  * Create master template (base off of ArcMind CSS)
+  * Create CSS style sheet for master template
+
+
+Completed tasks
   * Add slug for Course, Section and Subsection    DONE 
   * Add columns in listing for Course, Section and Subsection DONE
   * Allows sorting Section by Course DONE
-  * Add support for simple markup
-  * Add features to save text into HTML whenever Section or Subsection is saved
-  * Add view to view course as single book
-  * Add view to view outline of course
-  * Create PDF slide deck with just Course, Section and Subsection
-  * Use markup to create the rest of the slide deck
+  * Add support for simple markup DONE
+  * Add features to save text into HTML whenever Section or Subsection is saved DONE
 
 This should be enough to keep me busy for a while.
