@@ -15,6 +15,24 @@ Add your content here.  Format your content with:
   * Try markup to create better code listings (i.e., one not depending on spaces)
   * Create master template (base off of ArcMind CSS)
   * Create CSS style sheet for master template
+  * Make a listing of courses that you can click on a course and display its list of sections and subsections.
+   * Make it so you can view a single section or subsection
+   * Improve Eclipse project so imports work
+   * 
+
+Views:
+  * Course outline
+  * One course, one page
+  * Course outline with clickable subsections
+  * Course outline with clickable sections
+  * Section view
+  * Subsection view
+  * Transform into WIKI syntax (mabye do this before PDF outline)
+  * Transform into Javalobby/Python zone formats (Do this before PDF outline)
+  * PDF outline view (for now)
+  * PDF course (with code syntax highlighting)
+  * Maybe use PDF XML outline for now... might be easier... :)
+
 
 
 Completed tasks
