@@ -1,4 +1,5 @@
 from django.db import models as md
+from markdown import markdown
 
 class Course(md.Model):
     title = md.CharField(max_length=80)
@@ -19,9 +20,17 @@ class BaseSection (md.Model):
     code = md.CharField(max_length=4)
     show = md.BooleanField(default=True)
     
+    
     class Meta:
         abstract = True
-    
+        
+    def save(self, force_insert=False, force_update=False):
+        fields = [field[:-5] for field in dir (self) if field[-5:]=="_html"]
+        for field in fields:
+            if getattr(self, field):
+                setattr(self, field +"_html", markdown(getattr(self,field)))
+        super(BaseSection, self).save(force_insert, force_update)
+        
 class Section(BaseSection):
     #Relationships
     course = md.ForeignKey(Course)
