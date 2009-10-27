@@ -16,6 +16,7 @@ Add your content here.  Format your content with:
   * Create master template (base off of ArcMind CSS)
   * Create CSS style sheet for master template
   * Make a listing of courses that you can click on a course and display its list of sections and subsections.
+   
    * Make it so you can view a single section or subsection
    * Improve Eclipse project so imports work
    * 
