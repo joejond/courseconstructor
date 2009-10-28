@@ -1,0 +1,30 @@
+{% extends "cw/base.html" %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+
+  Section {{ section }}
+        <li><p><h2>{{ section.title }}</h2>
+        		<h3>Introduction</h3>
+        		{{ section.introduction_html|safe }}
+			    {% for subsection in section.subsection_set.all %}
+			        <li><p><h4>{{ subsection.title }}</h4>
+			        	<h5>Subsection Introduction </h5>
+			        	{{ subsection.introduction_html|safe }}
+
+						{{ subsection.body_html|safe }}
+						
+			        	<h5>Subsection Conclusion </h5>
+			        	{{ subsection.conclustion_html|safe }}
+
+			        	</p>
+			        </li>
+			    {% endfor %}
+			    <h3>Conclusion</h3>
+			    {{ section.conclusion_html|safe }}
+        	</p>
+        </li>
+
+{% endblock %}
+
