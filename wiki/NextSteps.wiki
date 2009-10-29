@@ -8,6 +8,8 @@ Add your content here.
 = Details =
 
 Add your content here.  Format your content with:
+
+  * Convert markup into DOM and then into WIKI markup
   * Add view to view course as single book IN PROGRESS
 
 
@@ -17,8 +19,8 @@ Add your content here.  Format your content with:
   * Create master template (base off of ArcMind CSS) (IN PROGRESS)
   * Create CSS style sheet for master template
 
-  * Improve Eclipse project so imports work
-  * Start writing tests
+
+
 
   * Try markup to create better code listings (i.e., one not depending on spaces)
   * Integrate code syntax highlighting in custom markup for code listings (hmmm)
@@ -40,6 +42,9 @@ Views:
 
 
 Completed tasks
+  * Improve Eclipse project so imports work DONE
+  * Start writing tests DONE
+  * Convert markup output into XML DOM DONE
   * Make it so you can view a single section DONE
   * Add slug for Course, Section and Subsection    DONE 
   * Add columns in listing for Course, Section and Subsection DONE
