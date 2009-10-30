@@ -261,6 +261,7 @@ def foo():
 
 }}}
 
+}}}
 Which should look like this
 
  
@@ -293,5 +294,4 @@ I am a paragraph with special sauce _emphasis_ and *strong asdfasdf* `printf (vo
 def foo():
     pass
 
-}}}
 }}}
