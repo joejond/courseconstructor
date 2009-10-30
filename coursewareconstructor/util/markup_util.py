@@ -3,7 +3,7 @@ from xml.etree.cElementTree import ElementTree, tostring
 from cStringIO import StringIO
 from xml.dom.minidom import parseString
 
-def pHandler(element, output):
+def paraHandler(element, output):
     para = parseString(tostring(element)).childNodes[0]
     output.write("\n")
     for node in para.childNodes:
@@ -43,7 +43,7 @@ def headerHandler(element, output, level):
     
 handlers = {
     "pre" : preHandler,
-    "p" : pHandler,
+    "p" : paraHandler,
     "ul" : unorderedListHanlder,
     "ol" : orderedListHandler,
 }
@@ -67,6 +67,3 @@ def convert_to_wiki(text):
         else:
             print "Unknown tag {0}".format(child.tag)
     return output.getvalue()
-
-if __name__ == '__main__':
-    pass
