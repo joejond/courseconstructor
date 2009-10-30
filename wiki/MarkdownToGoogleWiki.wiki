@@ -4,6 +4,8 @@ This code adds the ability to convert from Markdown text (the subset I am intere
 
 FYI: "Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML)." See [http://daringfireball.net/projects/markdown/ markdown] and [http://www.freewisdom.org/projects/python-markdown/ python-markdown] for more details.
 
+This python script coverts markdown text into Google Wiki text.
+
 {{{
 from markdown import markdown
 from xml.etree.cElementTree import ElementTree, tostring
