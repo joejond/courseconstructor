@@ -36,7 +36,7 @@ def foo():
 ~~~~
         """
     
-    def testMarkup(self):
+    def ztestMarkup(self):
         
         html = markdown(self.markup_text, ["fenced_code"])
         print html
@@ -48,7 +48,7 @@ def foo():
 #        self.assertEquals(1, html.count("<code"))
 #        self.assertEquals(1, html.count("</code>"))
         
-    def testConvertToWiki(self):
+    def ztestConvertToWiki(self):
         print "WIKI \n" + convert_to_wiki(self.markup_text)
         
     def ztestMarkupToDOM(self):
@@ -73,6 +73,20 @@ def foo():
             print "attrib " + `child.attrib`
                 
         #http://docs.python.org/library/xml.etree.elementtree.html
-        
+
+
+    def ztestConvertToContent(self):
+        from course_manager import coursemodel as cm
+        cm = cm.ContentConverter()
+        content = cm.convert(self.markup_text, 1, "GoogleWiki")
+        content.printIt()
+
+    def testConvertToGoogleWiki(self):
+        from course_manager import coursemodel as cm
+        cm = cm.ContentConverter()
+        content = cm.convertToGoogleWiki(self.markup_text, 1, "GoogleWiki")
+        print "##########################################################"
+        print content
+
 if __name__ == '__main__':
     unittest.main()        
