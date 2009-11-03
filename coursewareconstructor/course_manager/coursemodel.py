@@ -149,6 +149,7 @@ class ContentConverter:
     def preHandler(self, element):
         element = element.getchildren()[0]
         codeBlock = eval("{0}CodeBlock(element.text)".format(self.contentType))
+        codeBlock.lang = element.get("class", "nolang")
         self.content.add_tag(codeBlock)
     
     def headerHandler(self, element, level):
@@ -162,7 +163,7 @@ class ContentConverter:
         "ol" : orderedListHandler,
     }
 
-    def convertToGoogleWiki(self, markdown_text, levelOffset=0, contentType=""):
+    def convertToWiki(self, markdown_text, levelOffset=0, contentType=""):
         content = self.convert(markdown_text, levelOffset, contentType)
         output = StringIO() 
         content.generateDocument(output)
@@ -258,4 +259,73 @@ class GoogleWikiList(List):
         output.write("\n")
                 
 class GoogleWikiContent(Content):
+    pass
+
+class MediaWikiHeading(Heading):
+    def __init__ (self, text, level):
+        Heading.__init__(self, text, level)
+    def writeTag(self, output):
+        output.write(("=" * self.level) + self.text + ("=" * self.level) + "\n")
+ 
+class MediaWikiListItem(ListItem):
+    def __init__ (self, text):
+        ListItem.__init__(self, text)
+    
+class MediaWikiText(Text):
+    def __init__ (self, text):
+        Text.__init__(self, text)
+    def writeTag(self, output):
+        output.write("{0}".format(self.text, self.name))
+
+class MediaWikiStrong(Strong):
+    def __init__ (self, text):
+        Strong.__init__(self, text)
+    def writeTag(self, output):
+        output.write("*{0}*".format(self.text, self.name))
+
+class MediaWikiEmphasis(Emphasis):
+    def __init__ (self, text):
+        Emphasis.__init__(self, text)
+    def writeTag(self, output):
+        output.write("_{0}_".format(self.text, self.name))
+
+class MediaWikiCode(Code):
+    def __init__ (self, text):
+        Code.__init__(self, text)
+    def writeTag(self, output):
+        output.write("`{0}`".format(self.text, self.name))
+
+class MediaWikiCodeBlock(CodeBlock):
+    def __init__ (self, text):
+        CodeBlock.__init__(self, text)
+    def writeTag(self, output):
+        output.write("""
+<source lang="%s">
+%s
+</source>
+""" % (self.lang, self.text) )
+
+class MediaWikiParagraph(Paragraph):
+    def __init__ (self):
+        Paragraph.__init__(self)
+    def writeTag(self, output):
+        output.write("\n")
+        for tag in self.tags:
+            tag.writeTag(output)
+        output.write("\n")
+
+
+class MediaWikiList(List):
+    def __init__ (self, ordered):
+        List.__init__(self, ordered)
+    def writeTag(self, output):
+        output.write("\n")
+        for item in self.listItems:
+            if self.ordered:
+                output.write("# {0}\n".format(item.text))
+            else:
+                output.write("* {0}\n".format(item.text))
+        output.write("\n")
+                
+class MediaWikiContent(Content):
     pass

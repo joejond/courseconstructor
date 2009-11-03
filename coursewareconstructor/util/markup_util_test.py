@@ -81,11 +81,18 @@ def foo():
         content = cm.convert(self.markup_text, 1, "GoogleWiki")
         content.printIt()
 
-    def testConvertToGoogleWiki(self):
+    def ztestConvertToGoogleWiki(self):
         from course_manager import coursemodel as cm
         cm = cm.ContentConverter()
-        content = cm.convertToGoogleWiki(self.markup_text, 1, "GoogleWiki")
+        content = cm.convertToWiki(self.markup_text, 1, "GoogleWiki")
         print "##########################################################"
+        print content
+
+    def testConvertToMediaWiki(self):
+        from course_manager import coursemodel as cm
+        cm = cm.ContentConverter()
+        content = cm.convertToWiki(self.markup_text, 1, "MediaWiki")
+        print "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
         print content
 
 if __name__ == '__main__':
