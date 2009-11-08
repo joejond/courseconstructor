@@ -8,7 +8,7 @@ class SubsectionInline(admin.StackedInline):
     extra = 2
 
 class SectionInline(admin.TabularInline):
-    fields = ['title', 'slug', 'code', 'show']
+    fields = ['title', 'slug', 'code', 'show', 'sortorder']
     prepopulated_fields = {"slug": ("title",)}
     model = cmm.Section
     extra = 4

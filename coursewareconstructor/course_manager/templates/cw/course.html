@@ -4,18 +4,19 @@
 
 {% block content %}
 
-  Course {{ course }}
-        <li><p><h4>{{ course.title }}</h4>
-        	{{ course.description_html|safe }}
-			    {% for section in course.section_set.all %}
-			        <li><p><h4>{{ section.title }}</h4>
-			        	{{ section.abstract_html|safe }}
-			        	<a href="{{ section.get_absolute_url }}">{{ section.title }}</a>
-			        	</p>
-			        </li>
-			    {% endfor %}
-        	</p>
-        </li>
+Course {{ course }}
+<h4>{{ course.title }}</h4>
+<div id="course-description">
+{{ course.description_html|safe }}
+</div>
+
+<ol>
+{% for section in sections %}
+<div id="course-section-list">
+    <li><a href="{{ section.get_absolute_url }}">{{ section.title }}</a></li>
+</div>
+{% endfor %}
+</ol>
 
 {% endblock %}
 
