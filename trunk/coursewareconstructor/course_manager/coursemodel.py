@@ -281,13 +281,13 @@ class MediaWikiStrong(Strong):
     def __init__ (self, text):
         Strong.__init__(self, text)
     def writeTag(self, output):
-        output.write("*{0}*".format(self.text, self.name))
+        output.write("'''{0}'''".format(self.text, self.name))
 
 class MediaWikiEmphasis(Emphasis):
     def __init__ (self, text):
         Emphasis.__init__(self, text)
     def writeTag(self, output):
-        output.write("_{0}_".format(self.text, self.name))
+        output.write("''{0}''".format(self.text, self.name))
 
 class MediaWikiCode(Code):
     def __init__ (self, text):
