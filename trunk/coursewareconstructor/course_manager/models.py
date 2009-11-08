@@ -25,6 +25,7 @@ class BaseSection (md.Model):
     conclusion_html = md.TextField(max_length=50000, blank=True)
     code = md.CharField(max_length=4)
     show = md.BooleanField(default=True)
+    sortorder = md.IntegerField()
     
     
     class Meta:

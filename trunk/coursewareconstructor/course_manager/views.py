@@ -11,6 +11,7 @@ def home(request):
 
 def show_course(request, slug):
     course = cmm.Course.objects.get(slug=slug)
+    sections = course.section_set.order_by("sortorder")
     return render_to_response('cw/course.html', locals())
 
 

@@ -17,8 +17,8 @@ urlpatterns = patterns('',
 
     (r'^admin/', include(admin.site.urls)),
     (r'^cw/$', views.index),
-    (r'^cw/course/(?P<slug>.{0,10})\.html$', views.show_course),
-    (r'^cw/section/(?P<slug>.{0,10})\.html$', views.show_section),
+    (r'^cw/course/(?P<slug>.{0,50})\.html$', views.show_course),
+    (r'^cw/section/(?P<slug>.{0,50})\.html$', views.show_section),
     (r'^[.]{0}$', views.home),
 
 )
