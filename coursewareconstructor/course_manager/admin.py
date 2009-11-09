@@ -15,7 +15,7 @@ class SectionInline(admin.TabularInline):
 
 class SectionAdmin(admin.ModelAdmin):
     fields = ['course', 'title', 'slug', 'introduction', 'conclusion', 'code', 'show']
-    list_display = ['course', 'title', 'code', 'show']
+    list_display = ['course', 'title', 'code', 'show', 'sortorder']
     list_editable = ['show', 'code']
     list_filter = ['course']
     search_fields = ['course__title']
