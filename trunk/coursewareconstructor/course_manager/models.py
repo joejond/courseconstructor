@@ -35,7 +35,7 @@ class BaseSection (md.Model):
         fields = [field[:-5] for field in dir (self) if field[-5:]=="_html"]
         for field in fields:
             if getattr(self, field):
-                setattr(self, field +"_html", markdown(getattr(self,field)))
+                setattr(self, field +"_html", markdown(getattr(self,field), ["fenced_code"]))
         super(BaseSection, self).save(force_insert, force_update)
         
     def get_absolute_url(self):
