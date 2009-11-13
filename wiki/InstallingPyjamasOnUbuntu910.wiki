@@ -1,4 +1,4 @@
-#summary Installing Pyjamas on Ubuntu 9.10
+#summary Installing Pyjamas and Pyjamas desktop on Ubuntu 9.10
 
 = Introduction =
 
@@ -106,3 +106,16 @@ $ sudo apt-get build-dep hulahop
 $ sudo apt-get -b source hulahop
 $ sudo dpkg -i python-hulahop_0.4.9-1ubuntu2_amd64.deb 
 }}}
+
+== Installing xpcom == 
+Ensure you have XUL runner installed:
+
+{{{
+$ apt-get install xulrunner-1.9.1
+}}}
+
+(I am not sure about this step.)
+
+Download the tar file listed below for xpcom, untar it, and copy the xpcom directory into ~/tools/pyjamas/library.
+
+http://pyjamas-dev.googlegroups.com/web/xpcom-ubuntu-9.10.tar.gz
