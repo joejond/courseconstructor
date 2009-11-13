@@ -89,7 +89,7 @@ $ firefox output/Hello.html
 To run pyjamas-desktop, we have to set the python path to the pyjamas library, so pyjd can find it:
 
 {{{
-pyjamas$ export PYTHONPATH=~/tools/pyjamas/library
+pyjamas$ export PYTHONPATH=~/tools/pyjamas/library:~/tools/pyjamas
 }}}
 
 == Installing Hulahop ==
