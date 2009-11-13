@@ -4,13 +4,13 @@
 
 This page explanis how to install Pyjamas and the pyjamas desktop on Ubuntu 9.10.
 
-See this page instead if you have a few hours to spare building the XUL lib:
+See this page instead if you have a few hours to spare building the XUL lib or need/want background information on pyjamas dependencies:
 
 http://code.google.com/p/pyjamas/wiki/PyjamasUbuntu
 
-= Checkout pyjamas =
+=Checkout Pyjamas=
 
-For illustration purposes, create a new directory in your home directory called tools. 
+For illustration purposes, create a new directory in your home directory called tools. (Feel free to install pyjamas anywhere, but the rest of this guide will refer to ~\tools). 
 
 Checkout pyjamas with svn into your ~/tools directory:
 
@@ -20,10 +20,12 @@ $ svn co https://pyjamas.svn.sourceforge.net/svnroot/pyjamas/trunk pyjamas
 
 This should create a directory ~/tools/pyjamas/ containing the current development source code.
 
+=Install Pyjamas=
+
 Now "install pyjamas" with the bootstrap command.
 {{{
 $ cd pyjamas
-pyjamas
+
 $ python bootstrap.py 
 }}}
 
@@ -32,13 +34,14 @@ This creates a directory bin/ which contains two wrapper programs:
 
 {{{
 pyjamas$ ls bin/
-pyjsbuild  pyjscompile
+pyjampiler  pyjsbuild  pyjscompile
 }}}
 
-The pyjsbuild program builds a web application, while pyjscompile invokes the pyjacompiler stand alone compiler.
+The pyjsbuild program builds a web application.
 
 It also creates the file pyjd/__init__.py for pyjamas-desktop integration.
 
+=Setup Pyjamas on your PATH=
 The programs in bin/ can be executed from anywhere and will locate the pyjamas program files automatically. You can add this directory to your PATH variable, for example:
 
 {{{
@@ -54,6 +57,7 @@ A first test can be done now:
 {{{
 $ pwd
 ~/tools/pyjamas
+
 $ cd examples/helloworld/
 $ pyjsbuild Hello.py
 }}}
@@ -76,6 +80,7 @@ Now point your browser to file:///.../pyjamas/examples/helloworld/output/Hello.h
 {{{
 $ pwd
 ~/tools/pyjamas/examples/helloworld/
+
 $ firefox output/Hello.html
 }}}
 
@@ -84,12 +89,14 @@ $ firefox output/Hello.html
 To run pyjamas-desktop, we have to set the python path to the pyjamas library, so pyjd can find it:
 
 {{{
-pyjamas$ export PYTHONPATH=~\tools\pyjamas\library
+pyjamas$ export PYTHONPATH=~/tools/pyjamas/library
 }}}
 
 == Installing Hulahop ==
 
-Pyjamas desktop depends on Hulahop. "HulaHop is Gecko 1.9 (Firefox 3.0 core) web browser as a simple embeddable control with Python DOM access. It is a PyGTK Widget."
+Pyjamas desktop depends on Hulahop. 
+
+"HulaHop is Gecko 1.9 (Firefox 3.0 core) web browser as a simple embeddable control with Python DOM access. It is a PyGTK Widget." (Google search results)
 
 Normally you can just grap hulahop as follows:
 
@@ -104,7 +111,7 @@ $ mkdir ~/build-hulahop
 $ cd ~/build-hulahop
 $ sudo apt-get build-dep hulahop
 $ sudo apt-get -b source hulahop
-$ sudo dpkg -i python-hulahop_0.4.9-1ubuntu2_amd64.deb 
+$ sudo dpkg -i python-hulahop_0.4.9-1ubuntu2_{your architecture}.deb 
 }}}
 
 == Installing xpcom == 
@@ -114,7 +121,7 @@ Ensure you have XUL runner installed:
 $ apt-get install xulrunner-1.9.1
 }}}
 
-(I am not sure about this step.)
+(I am not sure about the above step.)
 
 Download the tar file listed below for xpcom, untar it, and copy the xpcom directory into ~/tools/pyjamas/library.
 
