@@ -9,20 +9,13 @@ Add your content here.
 
 Add your content here.  Format your content with:
 
-  * Convert markup into DOM and then into WIKI markup
+  * Handle URLs in markup
+  * Come up with scheme for saving images until image upload works
   * Add view to view course as single book IN PROGRESS
-
-
   * Create PDF slide deck with just Course, Section and Subsection
   * Use markup to create the rest of the slide deck
-
   * Create master template (base off of ArcMind CSS) (IN PROGRESS)
   * Create CSS style sheet for master template
-
-
-
-
-  * Try markup to create better code listings (i.e., one not depending on spaces)
   * Integrate code syntax highlighting in custom markup for code listings (hmmm)
 
 
@@ -42,6 +35,8 @@ Views:
 
 
 Completed tasks
+  * Try markup to create better code listings (i.e., one not depending on spaces)
+  * Convert markup into DOM and then into WIKI markup (both media wiki and google wiki)
   * Improve Eclipse project so imports work DONE
   * Start writing tests DONE
   * Convert markup output into XML DOM DONE
