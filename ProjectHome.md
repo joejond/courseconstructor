@@ -1,0 +1,1 @@
+CMS for creating courseware and marketing it. The idea is to create a CMS courseware system in Django. From a single managed source, generate articles, books, labs manuals, articles (in multiple formats).
